@@ -17,7 +17,7 @@ try {
 </head>
 <body>
 <h1>Articles</h1>
-{articles.length > 0 ? (
+
         <ul>
             {articles.map(article => (
                     <li>{article.data.title}</li>
@@ -26,6 +26,6 @@ try {
         </ul>
 ) : (
         <p>No articles available</p>
-)}
+)
 </body>
 </html>
