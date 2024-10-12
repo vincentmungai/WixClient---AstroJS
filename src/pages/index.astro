@@ -1,0 +1,17 @@
+---
+export const prerender = false; // Ensures this page is served dynamically
+const headers = Astro.request.headers;
+
+import fetchArticles from '../lib/fetchArticles';
+
+const articles = await fetchArticles();
+console.log(articles);
+---
+<html>
+<head>
+
+</head>
+<body>
+hey
+</body>
+</html>
