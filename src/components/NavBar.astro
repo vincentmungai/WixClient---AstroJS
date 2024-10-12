@@ -1,0 +1,216 @@
+<head>
+
+</head>
+
+<!--rest of your document here-->
+<style>
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+        url('/fonts/Satoshi-Regular.woff') format('woff'),
+        url('/fonts/Satoshi-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /* Bold */
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+        url('/fonts/Satoshi-Bold.woff') format('woff'),
+        url('/fonts/Satoshi-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    /* Italic */
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/Satoshi-Italic.woff2') format('woff2'),
+        url('/fonts/Satoshi-Italic.woff') format('woff'),
+        url('/fonts/Satoshi-Italic.ttf') format('truetype');
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    /* Bold Italic */
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/Satoshi-BoldItalic.woff2') format('woff2'),
+        url('/fonts/Satoshi-BoldItalic.woff') format('woff'),
+        url('/fonts/Satoshi-BoldItalic.ttf') format('truetype');
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    /* Light */
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/Satoshi-Light.woff2') format('woff2'),
+        url('/fonts/Satoshi-Light.woff') format('woff'),
+        url('/fonts/Satoshi-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Satoshi', sans-serif !important;
+        transition: all 0.4s ease-in-out;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+        border-radius: 7px;
+        padding: 6px;
+        font-size: 14px;
+        background-color: hsla(50, 2%, 43.1%, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: fixed;
+        z-index: 10;
+        bottom: 1.5rem;
+        /*bottom: -2rem;*/
+        left: 50%;
+        transform: translateX(-50%);
+        /*animation: navLoader 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;*/
+        /*animation-delay: 1.5s; !* Added delay *!*/
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    li,
+    nav {
+        display: inline-block;
+    }
+
+    .nav-container {
+        max-width: fit-content !important;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 10px;
+    }
+
+    .nav-container > * {
+        cursor: pointer;
+    }
+
+    .nav-item {
+        font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+        color: hsl(50, 20%, 99%);
+        padding: 4px;
+        border-radius: 7px;
+        height: 48px;
+        background-color: hsl(50, 2.0%, 43.1%);
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 0 3px hsl(50, 2.0%, 43.1%);
+        border: 1px solid transparent;
+        outline: 1px solid hsl(50, 2.0%, 43.1%);
+        outline-offset: 1px;
+        font-size: 14px;
+
+    }
+
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-text {
+        color: hsl(50, 6%, 10%);
+        border-radius: 7px;
+        padding: 1em;
+        height: 48px;
+        background-color: hsl(57, 6%, 90.7%);
+        font-weight: bolder;
+        outline: 1px solid hsl(50, 2.0%, 43.1%);
+        outline-offset: 2px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    a {
+        color: hsl(50, 20%, 99%);
+    }
+
+    a.enter {
+        transform: translateY(0);
+        transition: transform 0.4s ease-in-out;
+    }
+
+
+    @media only screen and (min-width: 980px) {
+        .logo-text:hover, .nav-item:hover {
+            background-color: hsl(50, 6.0%, 10.0%);
+            transform: scale(0.9);
+        }
+        .nav-item:hover{
+            border: 1px solid hsl(50, 20%, 99%);
+        }
+
+        .logo-text:hover {
+            color: hsl(50, 20.0%, 99.0%);
+        }
+
+    }
+
+    @media only screen and (max-width: 480px) {
+
+        .nav-item {
+            padding: 1em;
+        }
+    }
+
+    @keyframes navLoader {
+        0% {
+            bottom: -2rem;
+        }
+        100% {
+            bottom: 1.5rem;
+        }
+    }
+    /*Extras - global*/
+    img{
+        image-rendering: optimizeQuality; /* Use browser-defined quality method */
+        image-rendering: -moz-crisp-edges; /* Firefox */
+        image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+        image-rendering: -o-crisp-edges; /* OS X & Windows Opera (12.02+) */
+        image-rendering: crisp-edges;/* Chrome */
+    }
+
+</style>
+
+    <nav>
+        <div class="nav-container">
+            <a  tabindex="0" href="/">
+                <div class="logo-text flex-center">H.</div>
+            </a><!--
+            <a tabindex="0" href="/projects">
+                <div class="nav-item flex-center">Projects</div>
+            </a>-->
+            <a tabindex="0" href="/#about">
+                <div class="nav-item flex-center">About</div>
+            </a>
+            <a tabindex="0" href="tel:+254717712699">
+                <div class="nav-item flex-center">Contact</div>
+            </a>
+        </div>
+    </nav>
+

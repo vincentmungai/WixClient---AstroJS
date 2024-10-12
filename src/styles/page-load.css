@@ -1,0 +1,32 @@
+@keyframes astroFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1 !important;
+    }
+}
+
+@keyframes astroGrow {
+    0% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.fade-in {
+    animation: astroFadeIn 1s ease-in-out;
+}
+
+.hero-fade {
+    animation: astroFadeIn 1s ease-in-out;
+}
+
+.astroGrow {
+    animation: astroGrow 0.8s ease-out;
+}
+.icon {
+    display: none !important;
+}

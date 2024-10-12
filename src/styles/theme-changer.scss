@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toggle-container {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spacer-block {
+    grid-column: span 10;
+}
+
+.toggle-wrapper {
+    width: 7em;
+    height: 2.5em;
+    background-color: hsl(50, 2.0%, 55.7%);
+    padding: 2px;
+    border-radius: 100vw;
+}
+
+.toggle-wrapper-is-dark {
+    background-color: hsl(59, 6.5%, 95.1%);
+}
+
+.theme-toggle {
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 100vw;
+    width: 50%;
+    height: 100%;
+    background-color: hsl(59, 6.5%, 95.1%);
+    color: hsl(50, 6.0%, 10.0%);
+    position: relative;
+    left: 0;
+    transition: left 0.8s ease-in-out;
+}
+
+body.dark .theme-toggle {
+    color: black;
+}
+
+.is-dark {
+    color: hsl(50, 20%, 99%);
+    background-color: hsl(2, 90%, 60%);
+    left: calc(100% - 54px);
+    /* Adjust this based on your needs */
+    animation: backgroundFill 0.8s forwards;
+}
+
+@keyframes backgroundFill {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: hsl(2, 90%, 60%);
+    }
+}
+
+.logo-text-full {
+    cursor: pointer;
+}
+
+body.light {
+    /* Light theme styles go here */
+    background-color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark {
+    /* Dark theme styles go here */
+    background-color: #1c1c1a;
+    color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .tag-wrapper,
+body.dark .hero_button-cta {
+    background-color: hsl(59, 6.5%, 95.1%);
+    border-color: hsl(59, 6.5%, 95.1%);
+    color: hsl(50, 6.0%, 10.0%);
+}
+
+body.dark .hero_button-cta {
+    border: 1px solid hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .hero_button-cta:hover {
+    background-color: hsl(50, 6.0%, 10.0%);
+    color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .small {
+    color: hsl(59, 6.5%, 95.1%) !important;
+}
+
+body.dark .work_title-wrap {
+    background-color: hsla(50, 6.0%, 10.0%, 0.8);
+    color: hsl(59, 6.5%, 95.1%) !important;
+}
+
+body.dark .card {
+    color: hsl(50, 6.0%, 10.0%);
+}
+
+body.dark .footer-card-transparent {
+    color: hsl(56, 5.9%, 88.4%);
+}
+
+body.dark .footer-card,
+body.dark .card {
+    background-color: hsl(59, 6.5%, 95.1%);
+    color: hsl(50, 6.0%, 10.0%);
+}
+
+body.dark .price-info {
+    color: #000;
+}
+
+body.dark h1 {
+    color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .project-name {
+    color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .blinder {
+    background-color: hsl(59, 6.5%, 95.1%);
+}
+
+body.dark .brand-logo {
+    color: hsl(50, 6.0%, 10.0%);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+::selection {
+    background: hsla(2, 90%, 60%, .7);
+    /* background color when text is highlighted */
+    color: hsl(50, 20%, 99%);
+    /* text color when text is highlighted */
+}

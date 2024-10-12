@@ -1,0 +1,374 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Regular */
+/*noinspection ALL*/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('/fonts/Satoshi-Regular.woff') format('woff'),
+    url('/fonts/Satoshi-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Bold */
+/*noinspection ALL*/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('/fonts/Satoshi-Bold.woff') format('woff'),
+    url('/fonts/Satoshi-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Italic */
+/*noinspection ALL*/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Italic.woff2') format('woff2'),
+    url('/fonts/Satoshi-Italic.woff') format('woff'),
+    url('/fonts/Satoshi-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Bold Italic */
+/*noinspection ALL*/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-BoldItalic.woff2') format('woff2'),
+    url('/fonts/Satoshi-BoldItalic.woff') format('woff'),
+    url('/fonts/Satoshi-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Light */
+/*noinspection ALL*/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Light.woff2') format('woff2'),
+    url('/fonts/Satoshi-Light.woff') format('woff'),
+    url('/fonts/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body.dark {
+    /* Dark theme styles go here */
+    background-color: #1c1c1a;
+    color: hsl(59, 6.5%, 95.1%);
+}
+
+body.light {
+    /* Dark theme styles go here */
+    background-color: #f3f3f2;
+    color: #1c1c1a;
+}
+
+
+h1 {
+    font-size: clamp(4rem, 0.4706rem + 11.7647vw, 8rem);
+    font-family: satoshi, sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    padding: 2em;
+}
+
+.page-cta-wrapper {
+    height: 80vh;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .gallery-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(28%, 1fr));
+        grid-template-rows: 300px;
+    }
+
+    .gallery-item {
+        min-width: 100%;
+        height: 300px;
+    }
+}
+
+.container {
+    padding: 2em;
+}
+
+
+.page-cta {
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.page-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-name {
+    font-size: clamp(4rem, 0.4706rem + 11.7647vw, 8rem);
+    font-family: satoshi, sans-serif;
+    font-weight: 300;
+}
+
+.project-name {
+    text-align: center;
+}
+
+.cta-button {
+    padding: 15px;
+    border: 1px solid #f3f3f2;
+    background-color: transparent;
+    font-family: "Satoshi", sans-serif;
+    color: #f3f3f2;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    transition: all 0.5s ease-out;
+    border-radius: 7px;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid #f3f3f2;
+}
+
+body.light .project-name {
+    color: #f3f3f2;
+}
+
+.project-article {
+    columns: 500px;
+}
+
+.center {
+    text-align: center;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+
+.disable-scroll {
+    overflow: hidden;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: 450px;
+    gap: 15px;
+}
+
+.gallery-item {
+    min-width: 300px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+dialog {
+    height: 80vh;
+    position: fixed;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    overflow: hidden;
+}
+
+dialog.showing {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+dialog::backdrop {
+    background: rgb(0 0 0 / 0.7);
+    opacity: 0;
+    filter: blur(7px);
+    --webkit: blur(7px);
+}
+
+.modal {
+    padding: 30px;
+}
+
+dialog[open], dialog[open]::backdrop {
+    animation: fadeIn 500ms forwards;
+}
+
+.modal-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .4) 47%, rgba(255, 255, 255, .2) 100%);
+    position: absolute;
+    z-index: 100;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery-img {
+    z-index: 0;
+}
+
+.gallery-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.description-text {
+    columns: 600px;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .description-text {
+        columns: 600px;
+    }
+
+    .overlay {
+        opacity: 1 !important;
+        background: linear-gradient(0deg, rgba(0, 0, 0, .0) 47%, rgba(255, 255, 255, .0) 100%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .overlay {
+        opacity: 1 !important;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 47%, rgba(255, 255, 255, 0) 100%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .page-cta-wrapper {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.btn-close {
+    position: absolute;
+    z-index: 1000;
+    right: 5px;
+    top: 5px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+
+}
+
+.gallery-item, .gallery-img {
+    will-change: transform;
+}
+
+@media only screen and (min-width: 1023px) {
+    .project-name {
+        font-size: 8rem !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .gallery-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+        grid-template-rows: 200px;
+    }
+
+    .gallery-item {
+        min-width: 100%;
+        height: 200px;
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    .page-cta-wrapper {
+        background-repeat: no-repeat;
+        background-size: cover !important;
+    }
+}

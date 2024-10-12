@@ -1,0 +1,161 @@
+---
+---
+<style>
+    * {
+        border: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Style for the blinder container */
+    .blinder-container {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%; /* Full width of the page */
+    }
+
+    /* Style for individual blinder divs */
+    .blinder {
+        height: 110vh; /* Adjust height as per your need */
+        flex: 1;
+        background-color: #1b1b18;
+    }
+
+    body.dark .blinder {
+        background-color: hsl(59, 6.5%, 95.1%);
+    }
+
+    body.light .logoTextAnimated-left,
+    body.light .logoTextAnimated-right,
+    body.light .beam {
+        color:  hsl(59, 6.5%, 95.1%);
+    }
+
+    /* Centered animated text */
+    .animated-text-container {
+        display: flex;
+        flex-direction: row;
+        font-size: calc(12px * 2.5);
+        font-weight: bold;
+        position: fixed;
+        z-index: 10000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-60%, -50%);
+        overflow: hidden;
+    }
+
+    /* Targeting the text span */
+    .logoTextAnimated-right,
+    .logoTextAnimated-left {
+        display: inline-block;
+        overflow: hidden;
+        color: #1b1b18;
+    }
+
+    .left, .right {
+        overflow: hidden;
+    }
+
+    .beam {
+        padding: 0;
+        margin: 0;
+        color: #1b1b18;
+    }
+
+    .logoTextAnimated-left {
+        transform: translateX(110%); /* Initial off-screen position for the left text */
+    }
+
+    .logoTextAnimated-right {
+        transform: translateX(-110%); /* Initial off-screen position for the right text */
+    }
+
+    @media only screen and (max-width: 480px) {
+        .logoTextAnimated-left, .logoTextAnimated-right {
+            font-size: calc(12px * 2);
+        }
+    }
+</style>
+
+<div class="blinder-container">
+    <div class="blinder"></div>
+    <div class="blinder"></div>
+    <div class="blinder"></div>
+    <div class="blinder"></div>
+</div>
+
+<div class="animated-text-container">
+    <div class="left">
+        <span class="logoTextAnimated-left">Visualsbyhunter</span>
+    </div>
+    <span class="beam">|</span>
+    <div class="right">
+        <span class="logoTextAnimated-right">Portfolio</span>
+    </div>
+</div>
+
+<!-- Load GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tl = gsap.timeline();
+
+        // Initial animation
+        tl.fromTo(".logoTextAnimated-left",
+            { x: "110%" },
+            {
+                x: "0%",
+                duration: 1.5,
+                ease: "power1.out"
+            }
+        );
+
+        tl.fromTo(".logoTextAnimated-right",
+            { x: "-110%" },
+            {
+                x: "0%",
+                duration: 1.5,
+                ease: "power1.out"
+            },
+            "<" // Sync with the left animation
+        );
+
+        // Reverse the text after a delay
+        tl.to(".logoTextAnimated-right",
+            {
+                x: "-110%",
+                duration: 1.5,
+                delay: 2,
+                ease: "power1.out"
+            }
+        );
+
+        tl.to(".logoTextAnimated-left",
+            {
+                x: "110%",
+                duration: 1.5,
+                ease: "power1.out"
+            },
+            "<" // Sync with the right text
+        );
+
+        tl.to(".beam", { opacity: 0, display: "none" }, "<");
+
+        // Animate the blinder elements to collapse
+        tl.to(".blinder",
+            {
+                height: "0vh",
+                stagger: 0.2,
+                ease: "power2.out",
+                duration: 1.5
+            },
+        );
+
+
+    });
+</script>

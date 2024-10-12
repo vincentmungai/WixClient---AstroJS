@@ -1,0 +1,125 @@
+<!--
+&lt;!&ndash;
+-&#45;&#45;
+// Fetching all .md files from the 'PriceCards' directory
+const allPriceCards = await Astro.glob('../content/PriceCards/*.md');
+const allExtraCards = await Astro.glob('../content/PriceCards/extras/*.md')
+-&#45;&#45;
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card-container {
+        display: flex;
+        margin-top: 2em;
+        max-width: 90em;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .card-container > * {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        color: #f3f3f2;
+        gap: 0.8em;
+        padding: 2em;
+        min-width: 18em;
+        min-height: 20em;
+        border-radius: 0.8em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    body.dark .card-container > * {
+        background-color: hsl(56, 5.9%, 88.4%);
+        color: #1a1a1a;
+    }
+
+    .grower {
+        flex-grow: 1;
+        border-bottom: 1px solid hsl(56, 5.9%, 88.4%);
+    }
+
+    body.dark .grower {
+
+        border-bottom: 1px solid #1a1a1a;
+
+    }
+
+    .card {
+        justify-content: space-between;
+    }
+
+
+    @media only screen and (max-width: 915px) and (min-width: 481px) {
+        .card-container > * {
+            flex-grow: 1;
+
+        }
+
+        .card-container {
+            gap: 1em;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .card-container {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-container > * {
+            flex-grow: 1;
+            min-width: 0;
+        }
+    }
+</style>
+<h1 class="col-span-12">Pricing</h1>
+<div class="card-container ">
+
+
+    {allPriceCards.map(card => (
+            <div class="card">
+                <p class="service-name"
+                   style="font-weight: bolder; font-size: larger">{card.frontmatter.serviceName}</p>
+
+                {card.frontmatter.details.map((line, index) => (
+                        <div>{line}</div>
+                ))}
+                <div class="grower"></div>
+                <div class="price" style="font-weight: bolder;">From&nbsp;Ksh&nbsp;{card.frontmatter.price}&nbsp;/hr
+                </div>
+
+
+            </div>
+
+    ))}
+
+{allExtraCards.map(cards => (
+    <div class="card is-extra">
+        <p class="service-name"
+           style="font-weight: bolder; font-size: larger">{cards.frontmatter.serviceName}</p>
+
+        {cards.frontmatter.details.map((line, index) => (
+                <div>{line}</div>
+        ))}
+        <div class="grower"></div>
+        <div class="price" style="font-weight: bolder;">From&nbsp;Ksh&nbsp;{cards.frontmatter.price}&nbsp;/hr
+        </div>
+
+
+    </div>
+
+))}
+</div>&ndash;&gt;-->
+-->

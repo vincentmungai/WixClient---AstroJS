@@ -1,0 +1,67 @@
+---
+import "../styles/theme-changer.scss";
+---
+
+<style>
+
+    body {
+        font-family: 'Satoshi', sans-serif !important;
+        transition: all 0.4s ease-in-out;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        font-weight: bolder;
+    }
+</style>
+<div class="toggle-container">
+    <div
+            class="logo-text-full"
+            onclick="window.location.href='/'"
+            style="cursor:pointer;"
+    >
+        <h1>HUNTER.</h1>
+    </div>
+    <div class="spacer-block"></div>
+    <div class="toggle-wrapper">
+        <div id="theme-toggle" class="theme-toggle">Light</div>
+    </div>
+</div>
+<script is:inline>let toggleButton = document.getElementById('theme-toggle');
+let systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+// Check for the saved preference in local storage
+let userPreference = localStorage.getItem('theme') || systemTheme;
+
+// Change theme on user preference
+changeTheme(userPreference);
+
+// Update theme on system preference change
+window.matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener('change', (event) => {
+        if (!localStorage.getItem('theme')) {
+            changeTheme(event.matches ? "dark" : "light");
+        }
+    });
+
+// Listen for theme-toggle button click
+toggleButton.addEventListener('click', function () {
+    this.classList.toggle('is-dark');
+    let theme = this.classList.contains('is-dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    changeTheme(theme);
+});
+
+// Function to change theme
+function changeTheme(theme) {
+    if (theme === 'dark') {
+        toggleButton.classList.add('is-dark');
+        toggleButton.innerHTML = 'Dark';   // Dark mode button text
+    } else {
+        toggleButton.classList.remove('is-dark');
+        toggleButton.innerHTML = 'Light';  // Light mode button text
+    }
+    document.body.classList.remove('dark', 'light');
+    document.body.classList.add(theme);
+}
+</script>

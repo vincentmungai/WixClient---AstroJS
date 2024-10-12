@@ -1,0 +1,36 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .tag-wrapper {
+        padding: 0.6em 0.2em 0.2em;
+        display: inline-block;
+        background-color: hsl(50, 6.0%, 10.0%);
+        color: hsl(59, 6.5%, 95.1%);
+        font-weight: bolder;
+        transform: rotate(-90deg);
+        position: fixed;
+        z-index: 99999;
+        left: -5em; /*n Initial position off-screen to match keyframes */
+        bottom: 50%;
+        animation: astroSlideFromLeft 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        animation-delay: 10s;
+    }
+
+    @keyframes astroSlideFromLeft {
+        0% {
+            left: -5em; /* Start position off-screen */
+        }
+        100% {
+            left: -3.5em; /* End position */
+        }
+    }
+
+</style>
+
+<div class="tag-wrapper" onclick="window.location.href='mailto:mungaivincentwachira@gmail.com'">
+    Get your website.
+</div>
