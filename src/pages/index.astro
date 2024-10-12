@@ -1,17 +1,30 @@
 ---
 export const prerender = false; // Ensures this page is served dynamically
-const headers = Astro.request.headers;
 
 import fetchArticles from '../lib/fetchArticles';
 
-const articles = await fetchArticles();
-console.log(articles);
+let articles = [];
+try {
+    articles = await fetchArticles();
+    console.log(articles);
+} catch (error) {
+    console.error('Error loading articles:', error);
+}
 ---
 <html>
 <head>
-
+    <title>Articles Page</title>
 </head>
 <body>
-hey
+<h1>Articles</h1>
+{articles.length > 0 ? (
+        <ul>
+            {articles.map(article => (
+                    <li>{article.title}</li>
+            ))}
+        </ul>
+) : (
+        <p>No articles available</p>
+)}
 </body>
 </html>
